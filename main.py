@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw
 import content
 import render as R
 
-W, H = 1600, 2000
+W, H = 1600, 2240
 MARGIN = 72
 CW = W - MARGIN * 2
 
@@ -71,7 +71,8 @@ def lead(d, y):
         y_text += 6
     panel_x = MARGIN + col_w + 44
     panel_w = W - MARGIN - panel_x
-    d.rectangle([panel_x, y, W - MARGIN, y_text], fill=DARK)
+    panel_bottom = max(y_text, y + 348)
+    d.rectangle([panel_x, y, W - MARGIN, panel_bottom], fill=DARK)
     num_f = R.font("serif_black", 158)
     num = lead["big_number"]
     tw = R.text_width(d, num, num_f)
@@ -82,8 +83,8 @@ def lead(d, y):
         tw = R.text_width(d, line, lab_f)
         d.text((panel_x + (panel_w - tw) / 2, ly), line, font=lab_f, fill=CREAM)
         ly += 38
-    R.tariff_bars(d, (panel_x + 36, ly + 14, W - MARGIN - 36, y_text - 24), GOLD, (96, 88, 70))
-    return y_text + 32
+    R.tariff_bars(d, (panel_x + 36, ly + 16, W - MARGIN - 36, panel_bottom - 26), GOLD, (96, 88, 70))
+    return panel_bottom + 32
 
 
 def story_cell(d, x, y, w, story):
@@ -129,43 +130,41 @@ def story_grid(d, y):
 
 def markets(d, y):
     m = content.MARKETS
-    d.rectangle([MARGIN, y, W - MARGIN, y + 218], fill=DARK)
+    d.rectangle([MARGIN, y, W - MARGIN, y + 240], fill=DARK)
     x = MARGIN + 40
     chip_f = R.font("sans_black", 24)
-    R.kicker_tag(d, (x, y + 24), m["kicker"], GOLD, DARK, chip_f, pad_x=11, pad_y=6, tracking=2)
-    head_f = R.font("serif_bold", 45)
-    lines = R.wrap(d, m["headline"], head_f, 950)
-    yy = R.draw_lines(d, (x, y + 74), lines, head_f, CREAM, 54)
+    R.kicker_tag(d, (x, y + 22), m["kicker"], GOLD, DARK, chip_f, pad_x=11, pad_y=6, tracking=2)
+    head_f = R.font("serif_bold", 42)
+    d.text((x, y + 70), m["headline"], font=head_f, fill=CREAM)
     body_f = R.font("sans", 27)
-    blines = R.wrap(d, m["body"], body_f, 950)
-    yy = R.draw_lines(d, (x, yy + 4), blines, body_f, (205, 198, 182), 35)
-    R.sparkline_down(d, (W - MARGIN - 330, y + 46, W - MARGIN - 50, y + 138), (240, 110, 100))
+    d.text((x, y + 128), m["body"], font=body_f, fill=(205, 198, 182))
+    R.sparkline_down(d, (W - MARGIN - 300, y + 40, W - MARGIN - 48, y + 120), (240, 110, 100))
     stat_f = R.font("sans_black", 29)
     lab_f = R.font("sans_bold", 20)
     sx = x
     for label, value in m["stats"]:
-        d.text((sx, y + 172), value, font=stat_f, fill=GOLD if value in ("50,000+", "$94") else (240, 130, 120))
-        d.text((sx, y + 146), label, font=lab_f, fill=(168, 160, 146))
+        d.text((sx, y + 176), label, font=lab_f, fill=(168, 160, 146))
+        d.text((sx, y + 200), value, font=stat_f, fill=GOLD if value in ("50,000+", "$94") else (240, 130, 120))
         sx += R.text_width(d, value, stat_f) + 74
-    return y + 218 + 30
+    return y + 240 + 30
 
 
 def ticker(d, y):
     items = "   ///   ".join(content.TICKER)
-    d.rectangle([MARGIN, y, W - MARGIN, y + 112], fill=RED)
+    d.rectangle([MARGIN, y, W - MARGIN, y + 148], fill=RED)
     lab_f = R.font("sans_black", 26)
-    d.rectangle([MARGIN, y, MARGIN + 196, y + 112], fill=RED_DARK)
+    d.rectangle([MARGIN, y, MARGIN + 196, y + 148], fill=RED_DARK)
     tw = R.tracked_width(d, "ALSO", lab_f, 3)
-    R.tracked_text(d, (MARGIN + (196 - tw) / 2, y + 24), "ALSO", lab_f, CREAM, 3)
+    R.tracked_text(d, (MARGIN + (196 - tw) / 2, y + 42), "ALSO", lab_f, CREAM, 3)
     tw = R.tracked_width(d, "TODAY", lab_f, 3)
-    R.tracked_text(d, (MARGIN + (196 - tw) / 2, y + 58), "TODAY", lab_f, CREAM, 3)
-    body_f = R.font("sans_bold", 26)
+    R.tracked_text(d, (MARGIN + (196 - tw) / 2, y + 78), "TODAY", lab_f, CREAM, 3)
+    body_f = R.font("sans_bold", 25)
     lines = R.wrap(d, items, body_f, CW - 196 - 68)
-    yy = y + 18
-    for line in lines[:2]:
+    yy = y + 16
+    for line in lines[:3]:
         d.text((MARGIN + 228, yy), line, font=body_f, fill=CREAM)
-        yy += 38
-    return y + 112 + 24
+        yy += 40
+    return y + 148 + 24
 
 
 def footer(d, y):

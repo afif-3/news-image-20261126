@@ -72,11 +72,8 @@ STORIES = [
 
 MARKETS = {
     "kicker": "MARKETS  -  NEW YORK",
-    "headline": "AI sell-off drags Nasdaq toward a bear market",
-    "body": (
-        "Selling in AI-linked stocks deepens - Nvidia falls 3.9% - "
-        "even as the Dow closes above 50,000 for the first time."
-    ),
+    "headline": "AI sell-off nears bear market for Nasdaq",
+    "body": "Nvidia falls 3.9% as AI jitters deepen, even as the Dow tops 50,000.",
     "stats": [
         ("NVIDIA", "-3.9%"),
         ("NASDAQ", "NEAR -20%"),
@@ -86,12 +83,12 @@ MARKETS = {
 }
 
 TICKER = [
-    "KIM JONG UN URGES WIDER TACTICAL NUCLEAR DEPLOYMENT",
-    "SPAIN VOTES SUNDAY IN SNAP ELECTION",
-    "RESCUERS RACE TO REACH 13 MINERS TRAPPED IN INDONESIA",
-    "US TELLS CITIZENS TO LEAVE IRAN AS WAR FEARS GROW",
-    "LIVERPOOL BEAT CLUB BRUGGE 3-0 IN CHAMPIONS LEAGUE",
-    "JUDGES SUGGEST DROPPING TOP NETANYAHU CHARGE",
+    "KIM URGES WIDER NUCLEAR DEPLOYMENT",
+    "SPAIN'S SNAP ELECTION IS SUNDAY",
+    "13 MINERS TRAPPED IN FLOODED INDONESIAN MINE",
+    "US TELLS CITIZENS TO LEAVE IRAN",
+    "LIVERPOOL BEAT BRUGGE 3-0",
+    "JUDGES SUGGEST DROPPING NETANYAHU CHARGE",
 ]
 
 FOOTER = "Drawn entirely in code with Pillow  -  Sources: Reuters, One Turn, Daily Summary of World  -  26.11.2026"
