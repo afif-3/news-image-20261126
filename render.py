@@ -112,13 +112,28 @@ def kicker_tag(draw, xy, text, bg, fg, fnt, pad_x=14, pad_y=7, tracking=3):
 
 
 def draw_flame(draw, cx, cy, scale, fill):
-    pts = []
-    for t in range(0, 361, 6):
-        a = math.radians(t)
-        r = scale * (0.62 + 0.38 * math.sin(a * 3 + 1.2))
-        pts.append((cx + r * math.sin(a) * 0.72, cy - r * math.cos(a) - scale * 0.25 * math.sin(a * 2)))
+    """A simple teardrop flame: wide round base, one tip leaning up."""
+    s = scale
+    pts = [
+        (cx, cy - 1.15 * s),
+        (cx + 0.30 * s, cy - 0.42 * s),
+        (cx + 0.62 * s, cy + 0.05 * s),
+        (cx + 0.58 * s, cy + 0.55 * s),
+        (cx + 0.30 * s, cy + 0.88 * s),
+        (cx - 0.30 * s, cy + 0.88 * s),
+        (cx - 0.58 * s, cy + 0.55 * s),
+        (cx - 0.62 * s, cy + 0.05 * s),
+        (cx - 0.28 * s, cy - 0.38 * s),
+    ]
     draw.polygon(pts, fill=fill)
-    draw.ellipse([cx - scale * 0.20, cy - scale * 0.18, cx + scale * 0.20, cy + scale * 0.30], fill=(255, 244, 214))
+    inner = [
+        (cx, cy - 0.30 * s),
+        (cx + 0.26 * s, cy + 0.18 * s),
+        (cx + 0.20 * s, cy + 0.62 * s),
+        (cx - 0.20 * s, cy + 0.62 * s),
+        (cx - 0.26 * s, cy + 0.18 * s),
+    ]
+    draw.polygon(inner, fill=(255, 244, 214))
 
 
 def draw_drop(draw, cx, cy, scale, fill):
@@ -131,7 +146,7 @@ def draw_stars_circle(draw, cx, cy, radius, fill, count=12):
         a = 2 * math.pi * i / count
         sx = cx + radius * math.cos(a)
         sy = cy + radius * math.sin(a)
-        r = radius * 0.13
+        r = radius * 0.22
         draw.polygon([(sx, sy - r), (sx + r * 0.32, sy - r * 0.32), (sx + r, sy),
                       (sx + r * 0.32, sy + r * 0.32), (sx, sy + r),
                       (sx - r * 0.32, sy + r * 0.32), (sx - r, sy),

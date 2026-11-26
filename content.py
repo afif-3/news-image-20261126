@@ -16,13 +16,12 @@ LEAD = {
     "headline": "AMERICA TAXES\nTHE WORLD AGAIN",
     "standfirst": (
         "The United States proposes new tariffs on 14 trading "
-        "partners - China, the EU, Japan and India among them - "
-        "in a fresh bid to prise global trade from Beijing's grip."
+        "partners - China, the EU, Japan and India among them."
     ),
     "points": [
-        "Rates of up to 35% follow an eight-month probe into excess factory capacity",
-        "China rejects the charges but, for now, stops short of retaliation",
-        "A fourth Trump-Xi summit looms in Miami next month",
+        "Rates up to 35% after an eight-month capacity probe",
+        "China rejects the charges, stops short of retaliation",
+        "Fourth Trump-Xi summit looms in Miami next month",
     ],
     "big_number": "14",
     "big_label": "economies\nin the firing line",
@@ -33,9 +32,9 @@ STORIES = [
         "kicker": "CONFLICT  -  RIYADH",
         "headline": "Houthis strike Saudi\nports and refinery",
         "body": (
-            "Yemen's Houthis claim attacks on Saudi ports and the "
-            "giant Ras Tanura refinery as air defences intercept "
-            "missiles over Riyadh. Brent crude tops $94."
+            "Attacks claimed on Saudi ports and the giant Ras "
+            "Tanura refinery as defences intercept missiles over "
+            "Riyadh. Brent crude tops $94."
         ),
         "accent": "oil",
     },
@@ -43,9 +42,9 @@ STORIES = [
         "kicker": "DISASTER  -  CAIRO",
         "headline": "Tanker fire kills 31\non Cairo ring road",
         "body": (
-            "A fuel tanker overturned and burst into flames on the "
-            "capital's busy ring road. At least 31 people died and "
-            "about 21 were injured, officials say."
+            "A fuel tanker overturned and burst into flames on "
+            "the capital's busy ring road. At least 31 died and "
+            "about 21 were injured."
         ),
         "accent": "fire",
     },
@@ -53,9 +52,9 @@ STORIES = [
         "kicker": "EUROPE  -  BRUSSELS",
         "headline": "EU leaders clash over\n45bn euro Ukraine loan",
         "body": (
-            "Leaders meet to bridge deep divisions over a loan for "
-            "Kyiv and the bloc's next budget - as Ukraine reports "
-            "damaging five jets at a Russian airbase."
+            "Divisions over a loan for Kyiv and the bloc's next "
+            "budget - as Ukraine reports damaging five jets at "
+            "a Russian airbase."
         ),
         "accent": "eu",
     },
@@ -63,9 +62,9 @@ STORIES = [
         "kicker": "SPACE  -  TIANGONG",
         "headline": "First Pakistani astronaut\nboards China's station",
         "body": (
-            "Muhammad Zeeshan Ali arrives aboard Shenzhou-24, the "
-            "first foreign national to join Tiangong - a milestone "
-            "for Beijing's open-door space diplomacy."
+            "Muhammad Zeeshan Ali arrives aboard Shenzhou-24, "
+            "the first foreign national to join Tiangong - a "
+            "milestone for Beijing's space diplomacy."
         ),
         "accent": "space",
     },
